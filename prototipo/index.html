@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generador de Eventos Masivos</title>
+    <script>
+      (() => {
+        const storageKey = "eventforge:theme";
+        try {
+          const storedTheme = localStorage.getItem(storageKey);
+          const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+          const theme = storedTheme ?? (prefersLight ? "light" : "dark");
+          document.documentElement.setAttribute("data-theme", theme);
+          document.documentElement.classList.toggle("dark", theme === "dark");
+        } catch (error) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,6 +45,15 @@
             </div>
           </div>
           <div class="ml-auto flex items-center gap-3">
+            <button
+              id="theme-toggle"
+              class="inline-flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-900 px-3 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800"
+              type="button"
+              aria-pressed="true"
+            >
+              <span data-theme-icon aria-hidden="true">🌙</span>
+              <span id="theme-toggle-label">Modo claro</span>
+            </button>
             <button
               id="user-toggle"
               class="inline-flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-900 px-3 py-2 text-sm font-medium hover:bg-slate-800"

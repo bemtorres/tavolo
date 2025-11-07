@@ -5,6 +5,8 @@ import { Parties } from "./parties.js";
 import { Filters } from "./filters.js";
 import { UI } from "./ui.js";
 
+const THEME_STORAGE_KEY = "eventforge:theme";
+
 const state = {
   filters: {
     query: "",
@@ -18,6 +20,55 @@ const state = {
 };
 
 const snap = () => Storage.load();
+
+const updateThemeToggle = (theme) => {
+  const toggle = document.getElementById("theme-toggle");
+  const label = document.getElementById("theme-toggle-label");
+  const icon = toggle?.querySelector("[data-theme-icon]");
+  if (!toggle || !label || !icon) return;
+  const isDark = theme === "dark";
+  toggle.setAttribute("aria-pressed", String(isDark));
+  icon.textContent = isDark ? "🌙" : "☀️";
+  label.textContent = isDark ? "Modo claro" : "Modo oscuro";
+  toggle.title = isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
+};
+
+const applyTheme = (theme, { persist = true } = {}) => {
+  const normalized = theme === "light" ? "light" : "dark";
+  document.documentElement.dataset.theme = normalized;
+  document.documentElement.classList.toggle("dark", normalized === "dark");
+  if (persist) {
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, normalized);
+    } catch (error) {
+      // Ignorar si el almacenamiento no está disponible.
+    }
+  }
+  updateThemeToggle(normalized);
+};
+
+const monitorSystemPreference = () => {
+  if (typeof window.matchMedia !== "function") {
+    return;
+  }
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
+  const handler = (event) => {
+    try {
+      if (localStorage.getItem(THEME_STORAGE_KEY)) {
+        return;
+      }
+    } catch (error) {
+      // Ignorar si no es posible leer la preferencia almacenada.
+    }
+    applyTheme(event.matches ? "light" : "dark", { persist: false });
+  };
+
+  if (typeof mediaQuery.addEventListener === "function") {
+    mediaQuery.addEventListener("change", handler);
+  } else if (typeof mediaQuery.addListener === "function") {
+    mediaQuery.addListener(handler);
+  }
+};
 
 const syncUserHeader = () => {
   const user = Auth.getCurrentUser();
@@ -446,6 +497,7 @@ const handleGlobalShortcuts = (event) => {
 
 const init = () => {
   Auth.ensureUser();
+  applyTheme(document.documentElement.dataset.theme || "dark", { persist: false });
   UI.populateFilters(state.filters.category);
   document.getElementById("filters-form").addEventListener("submit", handleFiltersSubmit);
   document.getElementById("reset-filters").addEventListener("click", handleResetFilters);
@@ -454,6 +506,15 @@ const init = () => {
   document
     .getElementById("create-party-btn")
     .addEventListener("click", () => openPartyModal());
+
+  const themeToggle = document.getElementById("theme-toggle");
+  themeToggle?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    const next = current === "dark" ? "light" : "dark";
+    applyTheme(next);
+  });
+
+  monitorSystemPreference();
 
   const joinShortcut = document.createElement("button");
   joinShortcut.textContent = "Unirme con código";
