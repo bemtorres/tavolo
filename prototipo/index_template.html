@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Encuentros Masivos — Blueprint UX</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="bg-slate-950 text-slate-100 font-[Inter]">
+    <header
+      class="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/80 backdrop-blur"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8"
+      >
+        <div class="flex items-center gap-3">
+          <img src="./assets/logo.svg" alt="logo" class="h-10 w-10" />
+          <div>
+            <h1 class="text-xl font-semibold">EventForge</h1>
+            <p class="text-xs text-slate-400">Blueprint UX — 15 vistas clave</p>
+          </div>
+        </div>
+        <nav class="ml-auto hidden items-center gap-4 text-xs sm:flex">
+          <a class="text-slate-300 hover:text-indigo-300" href="#landing">Landing</a>
+          <a class="text-slate-300 hover:text-indigo-300" href="#onboarding">Onboarding</a>
+          <a class="text-slate-300 hover:text-indigo-300" href="#modos">Modos</a>
+          <a class="text-slate-300 hover:text-indigo-300" href="#explora">Explorar</a>
+          <a class="text-slate-300 hover:text-indigo-300" href="#admin">Admin</a>
+          <a class="text-slate-300 hover:text-indigo-300" href="#global-admin">Global</a>
+          <a class="text-slate-300 hover:text-indigo-300" href="#negocio">Negocio</a>
+          <a class="text-slate-300 hover:text-indigo-300" href="#footer">Footer</a>
+        </nav>
+        <button
+          id="blueprint-menu"
+          class="ml-auto inline-flex items-center gap-2 rounded-lg border border-slate-800 px-3 py-2 text-xs font-semibold text-slate-200 hover:bg-slate-900 sm:hidden"
+        >
+          Menú
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden border-t border-slate-800 bg-slate-950/95 px-4 py-3 text-sm sm:hidden"
+      >
+        <div class="grid gap-2">
+          <a class="hover:text-indigo-300" href="#landing">Landing</a>
+          <a class="hover:text-indigo-300" href="#onboarding">Onboarding</a>
+          <a class="hover:text-indigo-300" href="#registro">Registro</a>
+          <a class="hover:text-indigo-300" href="#modos">Modos</a>
+          <a class="hover:text-indigo-300" href="#creacion">Crear evento</a>
+          <a class="hover:text-indigo-300" href="#explora">Explorar</a>
+          <a class="hover:text-indigo-300" href="#evento">Vista evento</a>
+          <a class="hover:text-indigo-300" href="#feedback">Feedback</a>
+          <a class="hover:text-indigo-300" href="#perfil">Perfil</a>
+          <a class="hover:text-indigo-300" href="#admin">Admin</a>
+          <a class="hover:text-indigo-300" href="#global-admin">Panel global</a>
+          <a class="hover:text-indigo-300" href="#seguridad">Seguridad</a>
+          <a class="hover:text-indigo-300" href="#negocio">Casos & negocio</a>
+          <a class="hover:text-indigo-300" href="#footer">Footer</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="space-y-24 pb-24">
+      <section id="landing" class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-500/10 via-slate-900 to-slate-950"></div>
+        <div class="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-20 sm:px-6 lg:flex-row lg:items-center lg:py-28 lg:px-8">
+          <div class="flex-1 space-y-6">
+            <span class="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1 text-xs font-semibold text-indigo-200">
+              Experiencias inmersivas
+            </span>
+            <h2 class="text-4xl font-bold leading-tight sm:text-5xl">
+              Tu próxima cena podría cambiar tu vida
+            </h2>
+            <p class="text-lg text-slate-300">
+              Plataforma para diseñar encuentros masivos con preferencias de usuario, seguridad transparente y modos flexibles para cada comunidad.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="#modos"
+                class="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-6 py-3 text-sm font-semibold text-slate-950 hover:bg-indigo-400"
+              >
+                Explorar modos
+              </a>
+              <a
+                href="#onboarding"
+                class="inline-flex items-center gap-2 rounded-lg border border-slate-700 px-6 py-3 text-sm text-slate-200 hover:bg-slate-900"
+              >
+                Ver flujo completo
+              </a>
+            </div>
+            <div class="grid gap-4 rounded-2xl border border-slate-800 bg-slate-950/70 p-6 sm:grid-cols-3">
+              <div>
+                <p class="text-3xl font-semibold text-indigo-300">4</p>
+                <p class="text-xs uppercase tracking-wide text-slate-400">Modos de encuentro</p>
+              </div>
+              <div>
+                <p class="text-3xl font-semibold text-indigo-300">15</p>
+                <p class="text-xs uppercase tracking-wide text-slate-400">Vistas UX mapeadas</p>
+              </div>
+              <div>
+                <p class="text-3xl font-semibold text-indigo-300">∞</p>
+                <p class="text-xs uppercase tracking-wide text-slate-400">Posibilidades de expansión</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative flex-1">
+            <div class="rounded-3xl border border-indigo-500/40 bg-slate-900/60 p-6 backdrop-blur">
+              <p class="text-sm uppercase tracking-wide text-indigo-300">Hero sample</p>
+              <h3 class="mt-3 text-2xl font-semibold">Conecta con personas afines</h3>
+              <p class="mt-4 text-sm text-slate-300">
+                Storytelling visual con testimonios, métricas de comunidad y llamados a la acción múltiples.
+              </p>
+              <div class="mt-6 grid gap-3 text-xs text-slate-400">
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                  Conversión promedio prevista: 12%
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+                  Tiempo de scroll estimado: 38s
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+                  CTA primario “Explorar modos” destacado con contraste AA+
+                </div>
+              </div>
+            </div>
+            <div class="absolute -left-6 -top-6 h-24 w-24 rounded-3xl border border-indigo-500/40 bg-indigo-500/10"></div>
+            <div class="absolute -bottom-8 -right-10 h-32 w-32 rounded-full border border-emerald-500/30 bg-emerald-500/10 blur-xl"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="onboarding" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div class="space-y-3">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-400">Onboarding interactivo</p>
+            <h2 class="text-3xl font-semibold">Intro en 4 slides — “Así funciona”</h2>
+            <p class="text-sm text-slate-400">
+              Storyboard para explicar el valor diferencial antes del registro. Controla cada slide con el carrusel.
+            </p>
+          </div>
+          <div class="flex gap-2 text-xs text-slate-400">
+            <span class="rounded-full bg-slate-800 px-3 py-1">Swipe</span>
+            <span class="rounded-full bg-slate-800 px-3 py-1">CTA: “Comenzar”</span>
+          </div>
+        </div>
+        <div class="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60">
+          <div class="flex items-center justify-between px-6 py-4">
+            <button
+              id="slide-prev"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800"
+              aria-label="Slide anterior"
+            >
+              ◀
+            </button>
+            <div class="text-center">
+              <p class="text-xs uppercase tracking-wide text-indigo-300">Onboarding</p>
+              <p id="slide-title" class="text-lg font-semibold"></p>
+            </div>
+            <button
+              id="slide-next"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800"
+              aria-label="Slide siguiente"
+            >
+              ▶
+            </button>
+          </div>
+          <div class="border-t border-slate-800"></div>
+          <div class="grid gap-8 px-6 py-10 md:grid-cols-[1.2fr_1fr]">
+            <div>
+              <h3 id="slide-heading" class="text-2xl font-semibold"></h3>
+              <p id="slide-description" class="mt-4 text-sm text-slate-300"></p>
+              <ul id="slide-bullets" class="mt-6 space-y-2 text-sm text-slate-400"></ul>
+            </div>
+            <div class="space-y-4 rounded-2xl border border-indigo-500/30 bg-slate-900/70 p-6">
+              <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">UI preview</p>
+              <div class="aspect-[4/3] rounded-xl border border-slate-800 bg-gradient-to-br from-indigo-500/10 via-slate-900 to-slate-950 p-6 shadow-inner">
+                <div id="slide-visual" class="h-full w-full rounded-xl border border-indigo-500/20 bg-black/40"></div>
+              </div>
+              <button
+                class="w-full rounded-lg bg-indigo-500 py-3 text-sm font-semibold text-slate-950 hover:bg-indigo-400"
+              >
+                Comenzar
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-center gap-2 border-t border-slate-800 px-6 py-4">
+            <span class="text-xs text-slate-500">Slide</span>
+            <div id="slide-dots" class="flex gap-2"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="registro" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 lg:grid-cols-[1.1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Registro & Login</p>
+            <h2 class="text-3xl font-semibold">Ingreso seguro, listo para activar el quiz</h2>
+            <p class="text-sm text-slate-300">
+              Soporte para email, OAuth y verificación de identidad. Al primer acceso conducimos al quiz “ADN Social”.
+            </p>
+            <ul class="space-y-3 text-sm text-slate-400">
+              <li>• Campos clave: nombre, edad, foto, ciudad.</li>
+              <li>• Validación de correo / teléfono con doble factor opcional.</li>
+              <li>• Banner recordando beneficios de completar el perfil.</li>
+            </ul>
+          </div>
+          <div class="rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <div class="flex gap-3">
+              <button class="flex-1 rounded-lg border border-slate-700 px-4 py-2 text-sm hover:bg-slate-900">Email</button>
+              <button class="flex-1 rounded-lg border border-slate-700 px-4 py-2 text-sm hover:bg-slate-900">Google</button>
+              <button class="flex-1 rounded-lg border border-slate-700 px-4 py-2 text-sm hover:bg-slate-900">Redes</button>
+            </div>
+            <form class="mt-6 space-y-4">
+              <label class="text-sm text-slate-300">Correo
+                <input type="email" class="mt-1 w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-sm" placeholder="sofia@email.com" />
+              </label>
+              <label class="text-sm text-slate-300">Contraseña
+                <input type="password" class="mt-1 w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-sm" placeholder="••••••••" />
+              </label>
+            </form>
+            <button class="mt-6 w-full rounded-lg bg-indigo-500 py-3 text-sm font-semibold text-slate-950 hover:bg-indigo-400">
+              Continuar → Quiz ADN Social
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="quiz" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 lg:grid-cols-[1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Quiz de preferencias</p>
+            <h2 class="text-3xl font-semibold">“Tu ADN Social” — motor de emparejamiento</h2>
+            <p class="text-sm text-slate-300">
+              Selecciones visuales y microinteracciones que definen música, temas, gastronomía y ambiente ideal del usuario.
+            </p>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
+                <p class="text-xs text-indigo-300">Visual cards</p>
+                <p class="mt-2 text-sm text-slate-300">Swipe entre opciones con feedback inmediato.</p>
+              </div>
+              <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
+                <p class="text-xs text-indigo-300">Resumen final</p>
+                <p class="mt-2 text-sm text-slate-300">Perfil listo para aplicar a modos preferidos.</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="rounded-2xl border border-indigo-500/30 bg-slate-950/70 p-6">
+              <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Ejemplo UI</p>
+              <div class="grid gap-4">
+                <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
+                  <p class="text-sm font-semibold">¿Qué soundtrack te acompaña?</p>
+                  <div class="mt-3 grid gap-3 sm:grid-cols-2">
+                    <button class="rounded-xl border border-slate-800 bg-slate-950/80 px-4 py-3 text-xs text-slate-300 hover:border-indigo-400">
+                      🎶 Techno soulful
+                    </button>
+                    <button class="rounded-xl border border-slate-800 bg-slate-950/80 px-4 py-3 text-xs text-slate-300 hover:border-indigo-400">
+                      🎷 Jazz lounge
+                    </button>
+                    <button class="rounded-xl border border-slate-800 bg-slate-950/80 px-4 py-3 text-xs text-slate-300 hover:border-indigo-400">
+                      🍃 Lo-fi & chill
+                    </button>
+                    <button class="rounded-xl border border-slate-800 bg-slate-950/80 px-4 py-3 text-xs text-slate-300 hover:border-indigo-400">
+                      🔥 Latin beats
+                    </button>
+                  </div>
+                </div>
+                <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
+                  <p class="text-sm font-semibold">Preferencias guardadas</p>
+                  <p class="mt-2 text-xs text-slate-400">Techno soulful • Conversaciones profundas • Cocina fusión • Ambiente neon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="modos" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Vista principal</p>
+            <h2 class="text-3xl font-semibold">Elige tu modo de encuentro</h2>
+          </div>
+          <div class="flex items-center gap-3 text-xs text-slate-400">
+            <span>Microcopys personalizados</span>
+            <span class="hidden h-1 w-8 rounded-full bg-indigo-400 sm:block"></span>
+            <span>Acciones directas</span>
+          </div>
+        </div>
+        <div id="mode-cards" class="grid gap-6 md:grid-cols-2 xl:grid-cols-4"></div>
+      </section>
+
+      <section id="creacion" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 lg:grid-cols-[1.1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Creación de evento</p>
+            <h2 class="text-3xl font-semibold">Formularios adaptables según modo</h2>
+            <p class="text-sm text-slate-300">
+              Configura reglas, horarios, playlists o QR en una experiencia optimizada por contexto.
+            </p>
+            <ul class="space-y-3 text-sm text-slate-400">
+              <li>• Paso a paso con validación y guardado como borrador.</li>
+              <li>• Mapas integrados (Google/Mapbox) y selección de privacidad.</li>
+              <li>• Generación automática de QR con opciones para compartir.</li>
+            </ul>
+          </div>
+          <div class="space-y-4 rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Flujo resumido</p>
+            <ol class="space-y-3 text-sm text-slate-300">
+              <li>1. Completar datos básicos.</li>
+              <li>2. Añadir dinámica del modo (rondas, karaoke, party).</li>
+              <li>3. Revisar vista previa + QR + opciones de promoción.</li>
+            </ol>
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-400">
+              <p>Tip: en modo Party se sugiere una playlist comunitaria y códigos limitados.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="explora" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="space-y-6">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Vista de exploración</p>
+              <h2 class="text-3xl font-semibold">Descubre nuevas mesas</h2>
+              <p class="mt-3 text-sm text-slate-300">
+                Filtros facetados por ciudad, temática, nivel de conexión y horario. Cards listas para swipe/unirse.
+              </p>
+            </div>
+            <div class="flex gap-2 text-xs text-slate-400">
+              <span class="rounded-full bg-slate-800 px-3 py-1">Swipe</span>
+              <span class="rounded-full bg-slate-800 px-3 py-1">Filtro avanzado</span>
+            </div>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-6">
+              <p class="text-sm font-semibold">After Office Neo Seoul</p>
+              <p class="mt-2 text-xs text-slate-400">Techno soul • Dress code neon • 120 cupos</p>
+              <button class="mt-4 w-full rounded-lg bg-indigo-500 py-2 text-xs font-semibold text-slate-950 hover:bg-indigo-400">Unirme</button>
+            </div>
+            <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-6">
+              <p class="text-sm font-semibold">Cena Secreta en Valparaíso</p>
+              <p class="mt-2 text-xs text-slate-400">Gastronomía fusión • 40 cupos • Nivel conexión Alto</p>
+              <button class="mt-4 w-full rounded-lg border border-slate-700 py-2 text-xs text-slate-200 hover:bg-slate-900">Ver detalles</button>
+            </div>
+            <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-6">
+              <p class="text-sm font-semibold">Party VR en Spatial</p>
+              <p class="mt-2 text-xs text-slate-400">Modo virtual • Playlist colaborativa • Invitación por código</p>
+              <button class="mt-4 w-full rounded-lg border border-slate-700 py-2 text-xs text-slate-200 hover:bg-slate-900">Solicitar código</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="evento" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 lg:grid-cols-[1.1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Vista del evento</p>
+            <h2 class="text-3xl font-semibold">Toda la experiencia en una sola vista</h2>
+            <p class="text-sm text-slate-300">
+              Detalles de ubicación, dress code, playlists y participantes. Modo “en vivo” activa chat y sincronización musical.
+            </p>
+            <div class="space-y-3 text-sm text-slate-400">
+              <p>• Lista de invitados visible según privacidad del modo.</p>
+              <p>• Reservas para karaoke o turnos de ronda.</p>
+              <p>• Accesos directos para compartir QR o gestionar parties asociadas.</p>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Preview</p>
+            <div class="mt-4 grid gap-4">
+              <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-400">
+                <p class="text-sm font-semibold text-slate-200">After Office Tech House</p>
+                <p class="mt-2">📍 Rooftop Palermo • 21:00 hrs</p>
+                <p class="mt-1">🎧 Playlist Spotify conectada</p>
+              </div>
+              <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-400">
+                <p class="text-sm font-semibold text-slate-200">Modo en vivo</p>
+                <p class="mt-2">Chat en tiempo real y luz ambiental sincronizada.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="feedback" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 lg:grid-cols-[1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Feedback post-evento</p>
+            <h2 class="text-3xl font-semibold">Votaciones, reconocimientos y confianza</h2>
+            <p class="text-sm text-slate-300">
+              Encuestas con estrellas, comentarios anónimos y medallas gamificadas para reforzar el compromiso de la comunidad.
+            </p>
+            <ul class="space-y-3 text-sm text-slate-400">
+              <li>• Reconocimientos: “Más divertido”, “Mejor anfitrión”.</li>
+              <li>• Actualización automática del nivel del usuario.</li>
+              <li>• Métricas exportables para anfitriones y admins.</li>
+            </ul>
+          </div>
+          <div class="rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Tarjeta de ejemplo</p>
+            <div class="mt-4 space-y-4">
+              <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-400">
+                <p class="text-sm font-semibold text-slate-200">Califica tu experiencia</p>
+                <p class="mt-2">⭐⭐⭐⭐☆</p>
+                <textarea class="mt-3 w-full rounded-lg border border-slate-800 bg-slate-950 px-3 py-2" rows="3" placeholder="Comparte highlights de la noche"></textarea>
+              </div>
+              <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-400">
+                <p class="text-sm font-semibold text-slate-200">Medallas desbloqueadas</p>
+                <p class="mt-2">🏅 Anfitrión de Corazón • 🌍 Viajero del Sabor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="perfil" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 lg:grid-cols-[1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Perfil de usuario</p>
+            <h2 class="text-3xl font-semibold">“Tu ADN Social” siempre visible</h2>
+            <p class="text-sm text-slate-300">
+              Historial, logros, gustos y nivel de confianza. Opciones para vincular Spotify, editar privacidad o compartir perfiles.</p>
+          </div>
+          <div class="rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <div class="flex items-center gap-4">
+              <div class="h-16 w-16 rounded-full bg-gradient-to-br from-indigo-500 to-violet-500"></div>
+              <div>
+                <p class="text-lg font-semibold">Sofía Méndez</p>
+                <p class="text-xs text-slate-400">CDMX • Nivel confianza 87%</p>
+              </div>
+            </div>
+            <div class="mt-4 grid gap-3 text-xs text-slate-400">
+              <p>Gustos: Techno soulful • Conversaciones profundas • Cocina fusión</p>
+              <p>Logros: 🏅 Anfitrión de Corazón • 🎧 DJ Emocional</p>
+              <p>Historial: 12 eventos creados • 28 asistidos</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="admin" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 xl:grid-cols-[1.1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Administración anfitrión</p>
+            <h2 class="text-3xl font-semibold">Gestiona mesas y equipos en segundos</h2>
+            <p class="text-sm text-slate-300">
+              Panel para aprobar invitados, revisar calificaciones y clonar eventos con plantillas personalizadas.</p>
+          </div>
+          <div class="space-y-4 rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Métricas instantáneas</p>
+            <div class="grid gap-4 text-xs text-slate-400">
+              <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">Solicitudes pendientes: 8</div>
+              <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">Eventos clonados este mes: 3</div>
+              <div class="rounded-xl border border-slate-800 bg-slate-900/80 p-4">Satisfacción promedio: 4.6/5</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="global-admin" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 xl:grid-cols-[1.1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Panel de administración global</p>
+            <h2 class="text-3xl font-semibold">Monitoreo integral del ecosistema</h2>
+            <p class="text-sm text-slate-300">
+              Herramientas para el staff central: seguimiento de usuarios activos, validación de eventos emergentes,
+              analítica por ciudad y gestión de reportes críticos.</p>
+            <ul class="space-y-2 text-sm text-slate-400">
+              <li>• Validar nuevos eventos y anfitriones antes de publicarlos.</li>
+              <li>• Revisar reportes de seguridad y escalar incidencias.</li>
+              <li>• Controlar métricas globales por modo y nivel de confianza.</li>
+              <li>• Gestionar alianzas estratégicas y contenidos patrocinados.</li>
+            </ul>
+          </div>
+          <div class="space-y-5 rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Indicadores en vivo</p>
+            <div id="global-admin-metrics" class="grid gap-3 sm:grid-cols-2 xl:grid-cols-1"></div>
+            <div class="space-y-3">
+              <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Heatmap de ciudades</p>
+              <div class="rounded-2xl border border-slate-800 bg-gradient-to-br from-indigo-500/10 via-slate-900 to-slate-950 p-4">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>Santiago</span>
+                    <span class="font-semibold text-indigo-300">Alta ocupación</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>CDMX</span>
+                    <span class="font-semibold text-emerald-300">Crecimiento 12%</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>Buenos Aires</span>
+                    <span class="font-semibold text-amber-300">Riesgos 2</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Alertas recientes</p>
+              <ul id="global-admin-alerts" class="mt-3 space-y-2 text-xs text-slate-400"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 rounded-3xl border border-slate-800 bg-slate-900/60 p-6">
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Analítica por modo y ciudad</p>
+            <span class="rounded-full bg-slate-800 px-3 py-1 text-[10px] uppercase text-slate-400">Actualizado hace 5 min</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[560px] text-left text-xs text-slate-300">
+              <thead class="text-slate-400">
+                <tr class="border-b border-slate-800">
+                  <th class="py-2 pr-4 font-medium">Ciudad</th>
+                  <th class="py-2 pr-4 font-medium">Modo líder</th>
+                  <th class="py-2 pr-4 font-medium">Ocupación</th>
+                  <th class="py-2 pr-4 font-medium">Eventos pendientes</th>
+                  <th class="py-2 pr-4 font-medium">Nivel confianza</th>
+                </tr>
+              </thead>
+              <tbody id="global-admin-table" class="divide-y divide-slate-800"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="seguridad" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 lg:grid-cols-[1.1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Seguridad y confianza</p>
+            <h2 class="text-3xl font-semibold">Normas, reportes y cultura comunitaria</h2>
+            <p class="text-sm text-slate-300">
+              Página dedicada a explicar validación, votos anónimos y protocolos de cancelación.</p>
+          </div>
+          <div class="space-y-4 rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Puntos clave</p>
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li>• Reportes en un clic con seguimiento del staff.</li>
+              <li>• Políticas de cancelación claras.</li>
+              <li>• Código de conducta transparente.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="negocio" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-10 rounded-3xl border border-slate-800 bg-slate-900/60 p-8 xl:grid-cols-[1.1fr_1fr]">
+          <div class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Casos de estudio & modelo</p>
+            <h2 class="text-3xl font-semibold">Narrativa estratégica y monetización</h2>
+            <p class="text-sm text-slate-300">
+              Sección para destacar pilotos, aprendizajes y planes de ingresos (suscripciones, alianzas, contenido patrocinado).</p>
+          </div>
+          <div class="space-y-4 rounded-3xl border border-indigo-500/30 bg-slate-950/70 p-6">
+            <p class="text-xs uppercase tracking-[0.3em] text-indigo-300">Highlights</p>
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li>• Caso piloto: Santiago — primera mesa anónima.</li>
+              <li>• Modelo: Suscripción premium + patrocinios.</li>
+              <li>• Créditos creativos: Benjamín Mora Torres.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="border-t border-slate-800 bg-slate-950/80">
+      <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div>
+          <p class="text-slate-200">Footer universal</p>
+          <p class="text-xs">Links rápidos, redes, contacto y créditos.</p>
+        </div>
+        <nav class="flex flex-wrap gap-4 text-xs">
+          <a class="hover:text-indigo-300" href="#landing">Inicio</a>
+          <a class="hover:text-indigo-300" href="#explora">Eventos</a>
+          <a class="hover:text-indigo-300" href="#perfil">Perfil</a>
+          <a class="hover:text-indigo-300" href="#seguridad">Ayuda</a>
+          <a class="hover:text-indigo-300" href="#negocio">Casos</a>
+        </nav>
+        <p class="text-xs text-slate-500">Diseñado por Benjamín Mora Torres — bemtorres.github.io</p>
+      </div>
+    </footer>
+
+    <script>
+      const slides = [
+        {
+          title: "Slide 1",
+          heading: "Descubre tu modo",
+          description:
+            "Presentamos los cuatro modos principales con tarjetas animadas que muestran personalidad y beneficios inmediatos.",
+          bullets: [
+            "Swipe entre Anónimo, Amigos, Ronda y Party.",
+            "Cada card resalta el tipo de conexión y nivel de apertura.",
+            "CTA directo a la vista de modos tras completar el onboarding.",
+          ],
+          gradient: "from-indigo-500/40 via-indigo-500/10 to-transparent",
+        },
+        {
+          title: "Slide 2",
+          heading: "Conecta por gustos",
+          description:
+            "Mostramos cómo el motor de afinidades cruza el ADN Social con la agenda de eventos disponibles.",
+          bullets: [
+            "Visualización de tags compartidos y matches recomendados.",
+            "Sugerencias dinámicas según horario y mood.",
+            "Promesa de experiencias seguras y compatibles.",
+          ],
+          gradient: "from-emerald-500/30 via-emerald-500/10 to-transparent",
+        },
+        {
+          title: "Slide 3",
+          heading: "Participa y vota",
+          description:
+            "Explicamos el sistema de reconocimiento post-evento con medallas, reputación y feedback anónimo.",
+          bullets: [
+            "Gamificación de la confianza con insignias.",
+            "Panel para revisar votos y reforzar comunidad.",
+            "Incentivos para completar feedback en menos de 60s.",
+          ],
+          gradient: "from-amber-500/30 via-amber-500/10 to-transparent",
+        },
+        {
+          title: "Slide 4",
+          heading: "Disfruta y comparte",
+          description:
+            "Cerramos invitando a vivir la experiencia y compartir highlights en redes o con la comunidad interna.",
+          bullets: [
+            "Banner final con CTA a registro/login.",
+            "Recordatorio de beneficios exclusivos por modo.",
+            "Opciones de compartir en un clic.",
+          ],
+          gradient: "from-cyan-500/30 via-cyan-500/10 to-transparent",
+        },
+      ];
+
+      const modeCards = [
+        {
+          icon: "🕶️",
+          title: "Modo Anónimo",
+          subtitle: "La sorpresa",
+          description:
+            "Encuentros ciegos con anfitriones certificados. Ideal para abrir la red y descubrir afinidades inesperadas.",
+          actions: ["Explorar", "Crear mesa"],
+          accent: "border-emerald-500/40",
+        },
+        {
+          icon: "👥",
+          title: "Modo Amigos",
+          subtitle: "Entre cercanos",
+          description:
+            "Coordina cenas íntimas con tu círculo. Suma playlists colaborativas y reglas propias.",
+          actions: ["Invitar", "Planificar"],
+          accent: "border-indigo-500/40",
+        },
+        {
+          icon: "🔁",
+          title: "Modo Ronda",
+          subtitle: "Cadena de mesas",
+          description:
+            "Rotación de anfitriones para mantener la energía moviéndose. Ideal para networking profesional.",
+          actions: ["Ver calendario", "Proponer"],
+          accent: "border-amber-500/40",
+        },
+        {
+          icon: "🎉",
+          title: "Modo Party",
+          subtitle: "Llamada secreta",
+          description:
+            "Eventos masivos con códigos de acceso y ambientación inmersiva. Integra QR y experiencias VR.",
+          actions: ["Generar código", "Lanzar party"],
+          accent: "border-pink-500/40",
+        },
+      ];
+
+      const globalMetrics = [
+        {
+          label: "Usuarios activos",
+          value: "12.4K",
+          hint: "+8% vs semana pasada",
+          accent: "border-indigo-400/40 bg-indigo-500/10 text-indigo-200",
+        },
+        {
+          label: "Tasa participación",
+          value: "74%",
+          hint: "Eventos con cupos completos",
+          accent: "border-emerald-400/40 bg-emerald-500/10 text-emerald-200",
+        },
+        {
+          label: "Reportes abiertos",
+          value: "5",
+          hint: "Prioridad alta: 2",
+          accent: "border-amber-400/40 bg-amber-500/10 text-amber-200",
+        },
+        {
+          label: "Eventos en revisión",
+          value: "18",
+          hint: "3 pendientes de aprobación",
+          accent: "border-cyan-400/40 bg-cyan-500/10 text-cyan-200",
+        },
+      ];
+
+      const globalAlerts = [
+        { level: "alto", message: "Reporte de comportamiento en Buenos Aires Party VR", time: "hace 7 min" },
+        { level: "medio", message: "Validación de anfitrión nuevo en CDMX", time: "hace 14 min" },
+        { level: "bajo", message: "Solicitud de alianza gastronómica en Santiago", time: "hace 28 min" },
+      ];
+
+      const globalAnalytics = [
+        {
+          city: "Santiago",
+          leadMode: "Party",
+          occupancy: "92%",
+          pending: 3,
+          trust: "4.8 / 5",
+        },
+        {
+          city: "CDMX",
+          leadMode: "Amigos",
+          occupancy: "81%",
+          pending: 5,
+          trust: "4.6 / 5",
+        },
+        {
+          city: "Buenos Aires",
+          leadMode: "Ronda",
+          occupancy: "76%",
+          pending: 2,
+          trust: "4.4 / 5",
+        },
+        {
+          city: "Valparaíso",
+          leadMode: "Anónimo",
+          occupancy: "68%",
+          pending: 4,
+          trust: "4.2 / 5",
+        },
+      ];
+
+      const slideTitle = document.getElementById("slide-title");
+      const slideHeading = document.getElementById("slide-heading");
+      const slideDescription = document.getElementById("slide-description");
+      const slideBullets = document.getElementById("slide-bullets");
+      const slideVisual = document.getElementById("slide-visual");
+      const slideDots = document.getElementById("slide-dots");
+      const prev = document.getElementById("slide-prev");
+      const next = document.getElementById("slide-next");
+
+      let currentSlide = 0;
+
+      const renderDots = () => {
+        slideDots.innerHTML = "";
+        slides.forEach((_, index) => {
+          const dot = document.createElement("button");
+          dot.className = `h-2 w-6 rounded-full transition ${
+            index === currentSlide ? "bg-indigo-400" : "bg-slate-700"
+          }`;
+          dot.addEventListener("click", () => {
+            currentSlide = index;
+            renderSlide();
+          });
+          slideDots.appendChild(dot);
+        });
+      };
+
+      const renderSlide = () => {
+        const slide = slides[currentSlide];
+        slideTitle.textContent = slide.title;
+        slideHeading.textContent = slide.heading;
+        slideDescription.textContent = slide.description;
+        slideBullets.innerHTML = slide.bullets
+          .map((item) => `<li>• ${item}</li>`)
+          .join("");
+        slideVisual.className = `h-full w-full rounded-xl border border-indigo-500/30 bg-gradient-to-br ${slide.gradient}`;
+        renderDots();
+      };
+
+      prev?.addEventListener("click", () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        renderSlide();
+      });
+
+      next?.addEventListener("click", () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        renderSlide();
+      });
+
+      const modeContainer = document.getElementById("mode-cards");
+      modeCards.forEach((mode) => {
+        const card = document.createElement("article");
+        card.className = `rounded-3xl border ${mode.accent} bg-slate-900/60 p-6 transition hover:-translate-y-1 hover:border-indigo-400`;
+        card.innerHTML = `
+          <div class="flex items-center gap-3 text-2xl">${mode.icon}<span class="text-sm uppercase tracking-wide text-slate-400">${mode.subtitle}</span></div>
+          <h3 class="mt-3 text-xl font-semibold">${mode.title}</h3>
+          <p class="mt-3 text-sm text-slate-300">${mode.description}</p>
+          <div class="mt-6 flex flex-wrap gap-3 text-xs">
+            ${mode.actions
+              .map(
+                (action, index) => `
+                  <button class="rounded-lg ${
+                    index === 0
+                      ? "bg-indigo-500 px-4 py-2 font-semibold text-slate-950 hover:bg-indigo-400"
+                      : "border border-slate-700 px-4 py-2 text-slate-200 hover:bg-slate-900"
+                  }">${action}</button>`
+              )
+              .join("")}
+          </div>
+        `;
+        modeContainer.appendChild(card);
+      });
+
+      const metricsContainer = document.getElementById("global-admin-metrics");
+      if (metricsContainer) {
+        metricsContainer.innerHTML = globalMetrics
+          .map(
+            (metric) => `
+            <div class="rounded-2xl border ${metric.accent} p-4">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-slate-400">${metric.label}</p>
+              <p class="mt-2 text-2xl font-semibold">${metric.value}</p>
+              <p class="mt-1 text-xs text-slate-400">${metric.hint}</p>
+            </div>
+          `
+          )
+          .join("");
+      }
+
+      const alertsList = document.getElementById("global-admin-alerts");
+      if (alertsList) {
+        alertsList.innerHTML = globalAlerts
+          .map((alert) => {
+            const badgeColors =
+              alert.level === "alto"
+                ? "bg-rose-500/20 text-rose-200"
+                : alert.level === "medio"
+                ? "bg-amber-500/20 text-amber-200"
+                : "bg-emerald-500/20 text-emerald-200";
+            return `
+              <li class="flex items-center gap-2 rounded-xl border border-slate-800 bg-slate-950/60 p-3">
+                <span class="rounded-full px-2 py-0.5 text-[10px] uppercase tracking-wide ${badgeColors}">${alert.level}</span>
+                <div class="flex-1">
+                  <p class="text-slate-300">${alert.message}</p>
+                  <p class="text-[10px] uppercase tracking-wide text-slate-500">${alert.time}</p>
+                </div>
+              </li>
+            `;
+          })
+          .join("");
+      }
+
+      const globalTable = document.getElementById("global-admin-table");
+      if (globalTable) {
+        globalTable.innerHTML = globalAnalytics
+          .map(
+            (row) => `
+            <tr>
+              <td class="py-3 pr-4 text-slate-200">${row.city}</td>
+              <td class="py-3 pr-4">${row.leadMode}</td>
+              <td class="py-3 pr-4 text-emerald-300">${row.occupancy}</td>
+              <td class="py-3 pr-4">${row.pending}</td>
+              <td class="py-3 pr-4">${row.trust}</td>
+            </tr>
+          `
+          )
+          .join("");
+      }
+
+      const menuButton = document.getElementById("blueprint-menu");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (menuButton) {
+        menuButton.addEventListener("click", () => {
+          mobileMenu?.classList.toggle("hidden");
+        });
+      }
+
+      renderSlide();
+    </script>
+  </body>
+</html>
+

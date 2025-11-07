@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Eventos Masivos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="bg-slate-950 text-slate-100 font-[Inter] min-h-screen">
+    <div class="min-h-screen flex flex-col">
+      <header
+        class="bg-slate-900/60 backdrop-blur border-b border-slate-800 sticky top-0 z-30"
+      >
+        <div
+          class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center gap-4"
+        >
+          <div class="flex items-center gap-3">
+            <img src="./assets/logo.svg" alt="logo" class="h-10 w-10" />
+            <div>
+              <h1 class="text-xl font-semibold">EventForge</h1>
+              <p class="text-xs text-slate-400">
+                Prototipo local — eventos, parties y rondas
+              </p>
+            </div>
+          </div>
+          <div class="ml-auto flex items-center gap-3">
+            <button
+              id="user-toggle"
+              class="inline-flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-900 px-3 py-2 text-sm font-medium hover:bg-slate-800"
+            >
+              <span class="rounded-full bg-indigo-500/20 px-2 py-0.5 text-indigo-300 text-xs font-semibold"
+                id="user-mode-label">Anon</span
+              >
+              <span id="user-name-label">Anon</span>
+            </button>
+            <button
+              id="create-event-btn"
+              class="inline-flex items-center gap-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-semibold px-4 py-2 text-sm"
+            >
+              Crear evento
+            </button>
+            <button
+              id="create-party-btn"
+              class="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 hover:bg-slate-800 px-4 py-2 text-sm"
+            >
+              Crear party
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+        <section
+          id="filters"
+          class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 mb-6"
+        >
+          <form id="filters-form" class="flex flex-wrap gap-4 items-end">
+            <div class="flex-1 min-w-[180px]">
+              <label class="block text-xs uppercase tracking-wide text-slate-400"
+                >Buscar</label
+              >
+              <input
+                type="search"
+                name="query"
+                placeholder="Evento, tag o ubicación"
+                class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-sm"
+              />
+            </div>
+            <div class="min-w-[160px]">
+              <label class="block text-xs uppercase tracking-wide text-slate-400"
+                >Categoría</label
+              >
+              <select
+                name="category"
+                class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-sm"
+              >
+                <option value="">Todas</option>
+              </select>
+            </div>
+            <div class="min-w-[120px]">
+              <label class="block text-xs uppercase tracking-wide text-slate-400"
+                >Ubicación</label
+              >
+              <select
+                name="locationType"
+                class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-sm"
+              >
+                <option value="">Todas</option>
+                <option value="physical">Presencial</option>
+                <option value="virtual">Virtual</option>
+              </select>
+            </div>
+            <div class="min-w-[160px]">
+              <label class="block text-xs uppercase tracking-wide text-slate-400"
+                >Fecha desde</label
+              >
+              <input
+                type="date"
+                name="dateFrom"
+                class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-sm"
+              />
+            </div>
+            <div class="min-w-[160px]">
+              <label class="block text-xs uppercase tracking-wide text-slate-400"
+                >Fecha hasta</label
+              >
+              <input
+                type="date"
+                name="dateTo"
+                class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-sm"
+              />
+            </div>
+            <div class="min-w-[160px]">
+              <label class="block text-xs uppercase tracking-wide text-slate-400"
+                >Ordenar por</label
+              >
+              <select
+                name="sort"
+                class="w-full rounded-lg bg-slate-950 border border-slate-800 px-3 py-2 text-sm"
+              >
+                <option value="date">Fecha</option>
+                <option value="relevance">Relevancia</option>
+              </select>
+            </div>
+            <div class="ml-auto flex gap-2">
+              <button
+                type="submit"
+                class="rounded-lg bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-semibold px-4 py-2 text-sm"
+              >
+                Aplicar filtros
+              </button>
+              <button
+                type="button"
+                id="reset-filters"
+                class="rounded-lg border border-slate-700 bg-slate-900 hover:bg-slate-800 px-4 py-2 text-sm"
+              >
+                Limpiar
+              </button>
+            </div>
+          </form>
+          <div id="active-tags" class="flex flex-wrap gap-2 mt-4"></div>
+        </section>
+
+        <section class="grid lg:grid-cols-[1fr_320px] gap-6">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-lg font-semibold">Eventos destacados</h2>
+              <span id="events-count" class="text-sm text-slate-400"></span>
+            </div>
+            <div id="events-list" class="space-y-4"></div>
+          </div>
+          <aside class="space-y-6">
+            <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+              <h3 class="text-sm font-semibold mb-2">Mis parties</h3>
+              <div id="my-parties" class="space-y-3 text-sm"></div>
+            </section>
+            <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+              <h3 class="text-sm font-semibold mb-2">Actividad reciente</h3>
+              <ol
+                id="activity-log"
+                class="space-y-2 text-xs text-slate-400 max-h-64 overflow-y-auto"
+              ></ol>
+            </section>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="border-t border-slate-800 bg-slate-900/60 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-xs text-slate-500 flex flex-wrap gap-2 justify-between">
+          <span>Prototipo local — Generador de Eventos Masivos</span>
+          <span>Tailwind + Vanilla JS + localStorage</span>
+        </div>
+      </footer>
+    </div>
+
+    <div
+      id="modal-layer"
+      class="hidden fixed inset-0 z-50 bg-slate-950/70 backdrop-blur flex items-center justify-center px-4"
+    >
+      <div
+        class="relative w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl shadow-xl"
+      >
+        <div class="flex justify-between items-center px-6 py-4 border-b border-slate-800">
+          <h2 id="modal-title" class="text-lg font-semibold">Modal</h2>
+          <button id="modal-close" class="text-slate-500 hover:text-slate-200">✕</button>
+        </div>
+        <div id="modal-content" class="px-6 py-4 space-y-4 max-h-[70vh] overflow-y-auto"></div>
+        <div id="modal-footer" class="px-6 py-4 border-t border-slate-800 flex justify-end gap-3"></div>
+      </div>
+    </div>
+
+    <template id="event-card-template">
+      <article class="bg-slate-900/60 border border-slate-800 rounded-2xl overflow-hidden">
+        <div class="flex flex-col md:flex-row gap-0">
+          <div class="md:w-48 h-40 flex-shrink-0 bg-slate-800">
+            <img class="w-full h-full object-cover" data-role="event-image" alt="" />
+          </div>
+          <div class="flex-1 p-4 space-y-3">
+            <div class="flex items-start gap-2 flex-wrap">
+              <span data-role="event-status" class="px-2 py-0.5 rounded-full text-xs font-medium"></span>
+              <span data-role="event-category" class="px-2 py-0.5 rounded-full text-xs border border-indigo-500/40 text-indigo-300"></span>
+              <span data-role="event-location" class="px-2 py-0.5 rounded-full text-xs border border-slate-700 text-slate-300"></span>
+            </div>
+            <div>
+              <h3 data-role="event-title" class="text-lg font-semibold"></h3>
+              <p data-role="event-description" class="text-sm text-slate-400"></p>
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs text-slate-400" data-role="event-tags"></div>
+            <div class="flex flex-wrap gap-4 text-xs text-slate-400">
+              <span data-role="event-datetime"></span>
+              <span data-role="event-capacity"></span>
+              <span data-role="event-rounds"></span>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button
+                data-action="rsvp-going"
+                class="inline-flex items-center gap-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-4 py-2 text-sm"
+              >
+                Voy
+              </button>
+              <button
+                data-action="rsvp-interested"
+                class="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 hover:bg-slate-800 px-4 py-2 text-sm"
+              >
+                Me interesa
+              </button>
+              <button
+                data-action="rsvp-declined"
+                class="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 hover:bg-slate-800 px-4 py-2 text-sm"
+              >
+                No puedo
+              </button>
+              <button
+                data-action="view-event"
+                class="ml-auto inline-flex items-center gap-2 rounded-lg border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 px-4 py-2 text-sm"
+              >
+                Ver detalles
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
+
